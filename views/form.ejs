@@ -1,0 +1,22 @@
+<html>
+<head>
+    <title>Mini Messageboard</title>
+</head>
+<body>
+    <h1>
+        <%= title %>
+    </h1>
+
+    <form method="POST" action="/new">
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author">
+
+        <label for="text">Message:</label>
+        <input type="text" name="text" id="text">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <a href="/">Go back</a>
+</body>
+</html>
