@@ -8,7 +8,7 @@ const messages = [
 ];
 
 indexRouter.get("/", (req, res) => {
-  res.render("index", { title: "Mini Messageboard", messages });
+  res.render("index", { title: "mini messageboard", messages });
 });
 
 indexRouter.post("/new", (req, res) => {
@@ -31,7 +31,7 @@ indexRouter.get("/message/:id", (req, res) => {
     return res.status(404).send("Message not found!");
   }
 
-  res.render("message", { title: "Message Details", message });
+  res.render("message", { title: "message details", message });
 });
 
 module.exports = indexRouter;

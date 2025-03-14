@@ -1,19 +1,31 @@
 <html>
-  <head>
-    <title>Mini Messageboard</title>
-  </head>
-  <body>
-    <h1><%= title %></h1>
 
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+
+  <div class="messageboard">
     <ul>
-      <% messages.forEach((message, index) => { %>
-          <li>
-              <strong><%= message.user %>:</strong> <%= message.text %>
-              <a href="/message/<%= index %>">[Open]</a>
-          </li>
-      <% }); %>
-  </ul>
+      <% messages.forEach((message, index)=> { %>
+        <li>
+          <strong>
+            <%= message.user %>:
+          </strong>
+          <span class="message-text">
+            <%= message.text %>
+          </span>
+          <a href="/message/<%= index %>">[open]</a>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
 
-    <a href="/new">Add a new message</a>
+  <a href="/new">add a new message</a>
 </body>
+
 </html>

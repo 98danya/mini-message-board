@@ -1,14 +1,33 @@
 <html>
+
 <head>
-    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
-    <h1>Message Details</h1>
+    <h1>
+        <%= title %>
+    </h1>
 
-    <p><strong>Author:</strong> <%= message.user %></p>
-    <p><strong>Message:</strong> <%= message.text %></p>
-    <p><strong>Added:</strong> <%= message.added.toLocaleString() %></p>
+    <div class="message-details">
+        <p><strong>Author:</strong>
+            <span class="message-text">
+                <%= message.user %>
+            </span>
+        </p>
+        <p><strong>Message:</strong>
+            <span class="message-text">
+                <%= message.text %>
+            </span>
+        </p>
+        <p><strong>Added:</strong>
+            <span class="message-text">
+                <%= message.added.toLocaleString() %>
+            </span>
+        </p>
+    </div>
 
-    <a href="/">Go back</a>
+    <a href="/">go back</a>
 </body>
+
 </html>
