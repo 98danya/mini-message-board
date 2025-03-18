@@ -8,11 +8,21 @@ const pool = new Pool({
   },
 });
 
-pool.connect()
-  .then(() => console.log('Connected to PostgreSQL'))
-  .catch((err) => {
-    console.error('Connection error', err.message);
-    console.error('Full error stack:', err.stack);
-  });
+pool.on('error', (err) => {
+  console.error('Unexpected database error:', err);
+  process.exit(1);
+});
 
-module.exports = pool;
+process.on('SIGINT', async () => {
+  console.log('Closing database connection pool...');
+  await pool.end();
+  console.log('Database pool closed.');
+  process.exit(0);
+});
+
+async function getClient() {
+  const client = await pool.connect();
+  return client;
+}
+
+module.exports = { pool, getClient };
