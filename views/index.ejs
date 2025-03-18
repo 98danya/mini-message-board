@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+
+  <div class="messageboard">
+    <ul>
+      <% messages.forEach((message, index)=> { %>
+        <li>
+          <strong>
+            <%= message.author %>:
+          </strong>
+          <span class="message-text">
+            <%= message.content %>
+          </span>
+          <a href="/message/<%= message.id %>">[open]</a>
+        </li>
+        <% }); %>
+    </ul>
+  </div>
+
+  <a href="/new">add a new message</a>
+</body>
+
+</html>
